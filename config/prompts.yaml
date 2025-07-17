@@ -1,57 +1,42 @@
 prompts:
   image_prompt: |
-    Create a surreal but realistic scene description in English (200-500 chars) with:
-    1. MAIN CHARACTER: human/animal doing physical action
-    2. LOCATION: real-world place (e.g. Tokyo subway, Grand Canyon, Paris rooftops)
-    3. ACTION PREPARATION: athlete-style focus before extreme action
-    4. DETAILS: realistic setting with 1 surreal twist
-    5. NO EXAMPLES - be original
-    6. MOOD: tense anticipation
-    Format: "At [real location], [character] [prepares for action] while [surreal detail]. [Vivid description of preparation]"
+    Create a breathtaking, AI-generated background image description in English (200-500 chars) with:
+    1. THEME: Visually stunning, unmistakably artificial beauty
+    2. SETTING: Surreal fantasy environment (different each time)
+    3. MAIN ELEMENT: Subtle dynamic object (meteor, light ray, glowing structure)
+    4. MOTION: Element lightly moves (falling, drifting, rotating)
+    5. STYLE: Clearly AI-generated, different art style every time
+    6. PURPOSE: Used as a video background
+    7. MOOD: Inspiring, surreal, elegant
+    Format: "A [surreal location] where [element] gently [motion]. The environment looks hyper-detailed, beautifully artificial and unreal."
 
   video_prompt: |
-    Create an extreme action sequence in English (200-500 chars) for:
+    Create a smooth, AI-styled background video description in English (200-500 chars) for:
     SCENE: {scene}
     Requirements:
-    1. CHARACTER: performs planned extreme action
-    2. LOCATION: keep the real-world setting
-    3. ACTION: single dynamic movement (parkour, sports trick, escape etc)
-    4. SURREAL TWIST: 1 physically impossible outcome
-    5. CLIMAX: clear adrenaline moment
-    6. RESOLUTION: unexpected but logical ending
-    7. NO EXAMPLES
-    Format: "[Character] [extreme action]. [Surreal twist occurs]. [Final consequence]."
+    1. VISUAL: Stunning, surreal, clearly AI-generated
+    2. ELEMENT: Subtle continuous motion (falling meteor, drifting particles)
+    3. MOOD: Calm, surreal, motivational
+    4. PURPOSE: Loopable video background
+    5. DIVERSITY: Use distinct visual themes each time
+    Format: "[Description of surreal environment]. [Describe light motion of main element]. Background feels beautifully artificial and uniquely detailed."
+
 
   title_prompt: |
-    Create a 3-5 word viral-style title for this action video:
-    CONTEXT: {context}
-    Rules:
-    1. Use power words: "Extreme", "Insane", "Unbelievable"
-    2. Mention location
-    3. Title case
-    4. NO clickbait
-    Example format: "Insane [action] in [location]"
+    напиши строго одно название для цитаты на англмйском языке
 
   description_prompt: |
     Write a 50-character YouTube description for:
     VIDEO: {title}
     RULES:
-    1. Start with emoji
-    2. Mention location
-    3. Hint at the twist
+    1. Start with random relevant emoji
+    2. Mention AI-generated visual
+    3. Hint at the message
     4. Exactly 50 chars
-    Format: "📍[Location] | [Teaser]..."
+    Format: "[Emoji] [Visual hint] | [Message tease]..."
 
   video_text_prompt: |
-    На основе описания действия в видео создай **шокирующий, вызывающий и цепляющий текст на русском языке** (не более 30 слов, желательно меньше).
-
-    🔥 Требования:
-    1. Стиль — дерзкий, адреналиновый, вызывает «ВАУ»-эффект.
-    2. Язык — русский.
-    3. Основан на описании действия (title и description).
-    4. Без клише, без эмодзи, только текст.
-    5. Можно использовать заглавные буквы для акцента (но не весь текст).
+    Напиши строго одну мотивирующую, подчерикваюшую индивидуальность цитату в 2-6 предложения НА АНГЛИЙСКОМ ЯЗЫКЕ!
     
-    Формат: короткая, мощная фраза, которую хочется заскринить.
 
-tags: ["extreme", "action", "sports", "parkour", "surreal"]
+tags: ["motivational", "AI", "beautiful", "surreal", "background", "epic"]

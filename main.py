@@ -1,12 +1,13 @@
 from dotenv import load_dotenv
 from video_processing import VideoProcessor
 from config.logger_config import logger
+import schedule
+import time
+import datetime
 
-def main():
-    load_dotenv()
+def run_pipeline():
     try:
-        logger.info("Starting video generation pipeline")
-
+        logger.info(f"[{datetime.datetime.now()}] Запуск пайплайна генерации видео")
         processor = VideoProcessor()
         content = processor.generate_content()
 
@@ -28,20 +29,24 @@ def main():
             tags=content['tags']
         )
 
-        logger.info("Pipeline completed successfully")
+        logger.info(f"[{datetime.datetime.now()}] Пайплайн успешно завершён")
 
     except Exception as e:
-        logger.critical(f"Pipeline failed: {str(e)}")
-        raise
+        logger.critical(f"[{datetime.datetime.now()}] Пайплайн упал с ошибкой: {e}")
+        logger.info("Ждём следующей попытки запуска завтра.")
+
+def main():
+    load_dotenv()
+    schedule.every().day.at("05:00").do(run_pipeline)
+
+    logger.info("Сервис планировщика запущен, ждём запуска…")
+    while True:
+        try:
+            schedule.run_pending()
+            time.sleep(30)
+        except Exception as e:
+            logger.critical(f"[{datetime.datetime.now()}] Критическая ошибка основного цикла: {e}")
+            logger.info("Основной цикл продолжает работу после ошибки.")
 
 if __name__ == "__main__":
     main()
-
-
-"""
-Текст к видео - полный пиздец... нужно нормально настроить промпты
-удалить лишние папки с контентом - нормально нстроить папки с контентом
-добавить вк
-сделать нормальную работу с путями (к музыке в файлам и так далее)
-прромпты отдельно настроить
-"""

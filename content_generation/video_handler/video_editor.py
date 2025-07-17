@@ -27,7 +27,7 @@ class VideoEditor:
         fontsize: int = 50,
         color: str = "white",
         font_path: str = "arial.ttf",
-        position: Union[str, tuple] = "bottom",
+        position: Union[str, tuple] = "center",
         duration: Optional[float] = None,
         start_time: float = 0,
         background_color: str = "black",

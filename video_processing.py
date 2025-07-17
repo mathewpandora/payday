@@ -31,27 +31,30 @@ class VideoProcessor:
 
             # 1. Генерация изображения
             img_prompt = self.giga.send_prompt(self.prompts['prompts']['image_prompt'])
+            logger.info("Сгенерированное фото: %s", img_prompt)
 
             # 2. Генерация видео
             vid_prompt = self.giga.send_prompt(
                 self.prompts['prompts']['video_prompt'].format(scene=img_prompt)
             )
+            logger.info("Сгенерированное видео: %s", vid_prompt)
 
             # 3. Генерация заголовка
             context = f"{img_prompt[:200]}... {vid_prompt[:200]}..."
             title = self.giga.send_prompt(
                 self.prompts['prompts']['title_prompt'].format(context=context)
             )
-
+            logger.info("Сгенерированный заголовок: %s", title)
             # 4. Генерация описания
             description = self.giga.send_prompt(
                 self.prompts['prompts']['description_prompt'].format(title=title)
             )
-
+            logger.info("Сгенерированное описание:", description)
             # 5. Генерация текста для наложения на видео
             video_text = self.giga.send_prompt(
                 self.prompts['prompts']['video_text_prompt'].format(title=title, description=description)
             )
+            logger.info("Сгенерированный текст на видео:", video_text)
 
             return {
                 'img_prompt': img_prompt,
@@ -105,7 +108,7 @@ class VideoProcessor:
                        music_folder: str = "/Users/matvejtrofimov/Desktop/hayday/content_generation/video_handler/music",
                        font_path: str = "/Users/matvejtrofimov/Desktop/hayday/content_generation/video_handler/fonts/arialmt.ttf",
                        text_output: str = "/Users/matvejtrofimov/Desktop/hayday/content_generation/video_handler/texted_video/video_with_text.mp4",
-                       final_output: str = "final_with_music.mp4") -> str:
+                       final_output: str = "final_with_music_mem.mp4") -> str:
         """
         Добавляет текст и случайную музыку из папки к видео, возвращает путь к финальному видео.
         """
