@@ -31,30 +31,32 @@ class VideoProcessor:
 
             # 1. Генерация изображения
             img_prompt = self.giga.send_prompt(self.prompts['prompts']['image_prompt'])
-            logger.info("Сгенерированное фото: %s", img_prompt)
+            logger.info(f"Сгенерированное фото: {img_prompt}")
 
             # 2. Генерация видео
             vid_prompt = self.giga.send_prompt(
                 self.prompts['prompts']['video_prompt'].format(scene=img_prompt)
             )
-            logger.info("Сгенерированное видео: %s", vid_prompt)
+            logger.info(f"Сгенерированное видео: {vid_prompt}")
 
             # 3. Генерация заголовка
             context = f"{img_prompt[:200]}... {vid_prompt[:200]}..."
             title = self.giga.send_prompt(
                 self.prompts['prompts']['title_prompt'].format(context=context)
             )
-            logger.info("Сгенерированный заголовок: %s", title)
+            logger.info(f"Сгенерированный заголовок: {title}")
+
             # 4. Генерация описания
             description = self.giga.send_prompt(
                 self.prompts['prompts']['description_prompt'].format(title=title)
             )
-            logger.info("Сгенерированное описание:", description)
+            logger.info(f"Сгенерированное описание: {description}")
+
             # 5. Генерация текста для наложения на видео
             video_text = self.giga.send_prompt(
                 self.prompts['prompts']['video_text_prompt'].format(title=title, description=description)
             )
-            logger.info("Сгенерированный текст на видео:", video_text)
+            logger.info(f"Сгенерированный текст на видео: {video_text}")
 
             return {
                 'img_prompt': img_prompt,
@@ -84,7 +86,7 @@ class VideoProcessor:
     def upload_to_youtube(self, file_path: str, title: str, description: str, tags: list) -> dict:
         """Загрузка видео на YouTube"""
         try:
-            logger.info("Starting YouTube upload process")
+            logger.info(f"Starting YouTube upload process for video: {file_path}")
 
             youtube_service = self.youtube_connector.get_service()
             uploader = YouTubeUploader(youtube_service)
@@ -113,7 +115,7 @@ class VideoProcessor:
         Добавляет текст и случайную музыку из папки к видео, возвращает путь к финальному видео.
         """
         try:
-            logger.info("Starting video finalization: adding text and music")
+            logger.info(f"Starting video finalization for: {video_path}")
 
             # Проверка папки и выбор случайного аудиофайла
             if not os.path.isdir(music_folder):
@@ -152,5 +154,5 @@ class VideoProcessor:
             return final_output
 
         except Exception as e:
-            logger.error(f"Finalization failed: {str(e)}")
+            logger.error(f"Video finalization failed: {str(e)}")
             raise

@@ -37,7 +37,7 @@ def run_pipeline():
 
 def main():
     load_dotenv()
-    schedule.every().day.at("05:00").do(run_pipeline)
+    schedule.every().day.at("05:30").do(run_pipeline)
 
     logger.info("Сервис планировщика запущен, ждём запуска…")
     while True:

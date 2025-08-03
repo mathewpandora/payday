@@ -1,42 +1,42 @@
 prompts:
   image_prompt: |
-    Create a breathtaking, AI-generated background image description in English (200-500 chars) with:
-    1. THEME: Visually stunning, unmistakably artificial beauty
-    2. SETTING: Surreal fantasy environment (different each time)
-    3. MAIN ELEMENT: Subtle dynamic object (meteor, light ray, glowing structure)
-    4. MOTION: Element lightly moves (falling, drifting, rotating)
-    5. STYLE: Clearly AI-generated, different art style every time
+    Create a unique, AI-generated background image description in English (200-500 chars) with:
+    1. THEME: Visually stunning, clearly artificial beauty
+    2. SETTING: Distinctive and unreal environment (not necessarily fantasy)
+    3. MAIN ELEMENT: Subtle dynamic object 
+    4. MOTION: Element lightly moves (gliding, rippling, rotating)
+    5. STYLE: Different art style each time (photoreal, digital art, minimalistic, abstract, etc.)
     6. PURPOSE: Used as a video background
-    7. MOOD: Inspiring, surreal, elegant
-    Format: "A [surreal location] where [element] gently [motion]. The environment looks hyper-detailed, beautifully artificial and unreal."
+    7. MOOD: Inspiring, elegant, surreal
+    Format: "An [environment] where [element] [motion]. The scene feels hyper-detailed, beautifully artificial, and visually striking."
 
   video_prompt: |
     Create a smooth, AI-styled background video description in English (200-500 chars) for:
     SCENE: {scene}
     Requirements:
-    1. VISUAL: Stunning, surreal, clearly AI-generated
-    2. ELEMENT: Subtle continuous motion (falling meteor, drifting particles)
+    1. VISUAL: Stunning, unique, clearly AI-generated
+    2. ELEMENT:  continuous motion 
     3. MOOD: Calm, surreal, motivational
-    4. PURPOSE: Loopable video background
-    5. DIVERSITY: Use distinct visual themes each time
-    Format: "[Description of surreal environment]. [Describe light motion of main element]. Background feels beautifully artificial and uniquely detailed."
-
+    4. PURPOSE: Seamlessly loopable video background
+    5. DIVERSITY: Use a completely different visual style each time
+    Format: "[Description of unreal environment]. [Describe gentle motion of main element]. Background looks beautifully artificial, richly detailed, and visually unique."
 
   title_prompt: |
-    напиши строго одно название для цитаты на англмйском языке
+    Write exactly one short, powerful title in English for the quote (1-3 words).
+    Format "title"
 
   description_prompt: |
     Write a 50-character YouTube description for:
     VIDEO: {title}
     RULES:
-    1. Start with random relevant emoji
+    1. Start with a random relevant emoji
     2. Mention AI-generated visual
     3. Hint at the message
-    4. Exactly 50 chars
+    4. Exactly 50 characters
     Format: "[Emoji] [Visual hint] | [Message tease]..."
 
   video_text_prompt: |
-    Напиши строго одну мотивирующую, подчерикваюшую индивидуальность цитату в 2-6 предложения НА АНГЛИЙСКОМ ЯЗЫКЕ!
-    
+    Write ONE popular motivational  quote in English (2-6 sentences).
+    Format "quote"
 
-tags: ["motivational", "AI", "beautiful", "surreal", "background", "epic"]
+tags: ["motivational", "motivation","business","money", 'cars', 'flex',  "beautiful", "surreal", "background", "epic"]
