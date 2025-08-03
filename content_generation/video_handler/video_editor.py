@@ -130,7 +130,10 @@ class VideoEditor:
 
         self.cap.release()
         out.release()
-        os.rename(temp_output, output_path)
+        
+        import shutil
+        shutil.copy2(temp_output, output_path)
+        os.remove(temp_output)
         print(f"✅ Видео с адаптивным текстом сохранено как {output_path}")
 
     def add_music(self, music_path: str, output_path: str = "output_with_music.mp4") -> None:

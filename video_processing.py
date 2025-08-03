@@ -107,10 +107,10 @@ class VideoProcessor:
             raise
 
     def finalize_video(self, video_path: str, text: str,
-                       music_folder: str = "/Users/matvejtrofimov/Desktop/hayday/content_generation/video_handler/music",
-                       font_path: str = "/Users/matvejtrofimov/Desktop/hayday/content_generation/video_handler/fonts/arialmt.ttf",
-                       text_output: str = "/Users/matvejtrofimov/Desktop/hayday/content_generation/video_handler/texted_video/video_with_text.mp4",
-                       final_output: str = "final_with_music_mem.mp4") -> str:
+                       music_folder: str = "/app/content_generation/video_handler/music",
+                       font_path: str = "/app/content_generation/video_handler/fonts/arialmt.ttf",
+                       text_output: str = "/app/generated_videos/video_with_text.mp4",
+                       final_output: str = "/app/generated_videos/final_with_music_mem.mp4") -> str:
         """
         Добавляет текст и случайную музыку из папки к видео, возвращает путь к финальному видео.
         """
@@ -131,7 +131,8 @@ class VideoProcessor:
             logger.info(f"Selected music file: {selected_music}")
 
             # Добавление текста
-            editor = VideoEditor(video_path)
+            video_path_str = str(video_path) if hasattr(video_path, '__str__') else video_path
+            editor = VideoEditor(video_path_str)
             editor.add_text(
                 text=text,
                 output_path=text_output,
@@ -151,7 +152,7 @@ class VideoProcessor:
             editor.close()
 
             logger.info(f"Final video created at {final_output}")
-            return final_output
+            return str(final_output)
 
         except Exception as e:
             logger.error(f"Video finalization failed: {str(e)}")

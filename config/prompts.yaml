@@ -1,29 +1,29 @@
 prompts:
   image_prompt: |
-    Create a unique, AI-generated background image description in English (200-500 chars) with:
-    1. THEME: Visually stunning, clearly artificial beauty
-    2. SETTING: Distinctive and unreal environment (not necessarily fantasy)
-    3. MAIN ELEMENT: Subtle dynamic object 
-    4. MOTION: Element lightly moves (gliding, rippling, rotating)
-    5. STYLE: Different art style each time (photoreal, digital art, minimalistic, abstract, etc.)
-    6. PURPOSE: Used as a video background
-    7. MOOD: Inspiring, elegant, surreal
-    Format: "An [environment] where [element] [motion]. The scene feels hyper-detailed, beautifully artificial, and visually striking."
+    Generate an AI-crafted image description in English (50-300 chars NOT MORE):
+    THEME: Beautiful but clearly artificial
+    SETTING: Unreal environment
+    MAIN ELEMENT: One striking feature
+    MOTION: Suggests subtle movement
+    STYLE: Different art style each time
+    MOOD: Inspiring, surreal
+    PURPOSE: Base frame for background video
+    FORMAT: "An [environment] where [main element] appears to [motion]. Hyper-detailed, beautifully artificial, and captivating."
 
   video_prompt: |
-    Create a smooth, AI-styled background video description in English (200-500 chars) for:
+    Generate an AI-styled video description in English (50-300 chars NOT MORE) based on:
     SCENE: {scene}
-    Requirements:
-    1. VISUAL: Stunning, unique, clearly AI-generated
-    2. ELEMENT:  continuous motion 
-    3. MOOD: Calm, surreal, motivational
-    4. PURPOSE: Seamlessly loopable video background
-    5. DIVERSITY: Use a completely different visual style each time
-    Format: "[Description of unreal environment]. [Describe gentle motion of main element]. Background looks beautifully artificial, richly detailed, and visually unique."
+    VISUAL: Rich, AI-generated
+    MOTION: Layered (slow background + continuous main element)
+    FOCUS: Background dominates, motion adds depth
+    MOOD: Surreal, elegant
+    PURPOSE: Loopable dynamic backdrop
+    STYLE: Different each time
+    FORMAT: "[Unreal, richly detailed environment]. [Layered motion: subtle background flow + continuous main element movement]. Feels immersive and beautifully artificial."
 
   title_prompt: |
-    Write exactly one short, powerful title in English for the quote (1-3 words).
-    Format "title"
+    Write one short impactful title in English (1-3 words).
+    FORMAT: "title"
 
   description_prompt: |
     Write a 50-character YouTube description for:
@@ -31,12 +31,12 @@ prompts:
     RULES:
     1. Start with a random relevant emoji
     2. Mention AI-generated visual
-    3. Hint at the message
+    3. Hint at message
     4. Exactly 50 characters
-    Format: "[Emoji] [Visual hint] | [Message tease]..."
+    FORMAT: "[Emoji] [Visual hint] | [Message tease]..."
 
   video_text_prompt: |
-    Write ONE popular motivational  quote in English (2-6 sentences).
-    Format "quote"
+    Write ONE motivational quote in English (2-6 sentences) about ambition and individuality.
+    FORMAT: "quote"
 
-tags: ["motivational", "motivation","business","money", 'cars', 'flex',  "beautiful", "surreal", "background", "epic"]
+tags: ["motivational", "motivation", "business", "money", "cars", "flex", "beautiful", "surreal", "background", "epic"]

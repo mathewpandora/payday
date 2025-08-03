@@ -7,6 +7,7 @@ import datetime
 
 def run_pipeline():
     try:
+
         logger.info(f"[{datetime.datetime.now()}] Запуск пайплайна генерации видео")
         processor = VideoProcessor()
         content = processor.generate_content()
@@ -36,10 +37,14 @@ def run_pipeline():
         logger.info("Ждём следующей попытки запуска завтра.")
 
 def main():
+    start_time = "15:49"
     load_dotenv()
-    schedule.every().day.at("05:30").do(run_pipeline)
+    schedule.every().day.at(start_time).do(run_pipeline)
 
     logger.info("Сервис планировщика запущен, ждём запуска…")
+    logger.info(f"Текущее время: {datetime.datetime.now()}")
+    logger.info(f"Следующий запуск запланирован на: {start_time}")
+    
     while True:
         try:
             schedule.run_pending()

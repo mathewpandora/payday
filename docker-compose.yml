@@ -1,0 +1,18 @@
+version: '3.8'
+
+services:
+  hayday:
+    build: .
+    container_name: hayday-app
+    volumes:
+      - ./logs:/app/logs
+      - ./generated_videos:/app/generated_videos
+      - ./content_generation/video_handler/music:/app/content_generation/video_handler/music
+      - ./content_generation/video_handler/fonts:/app/content_generation/video_handler/fonts
+      - ./publications/youtube_publication:/app/publications/youtube_publication
+    environment:
+      - RUNWAY_API_KEY=${RUNWAY_API_KEY}
+      - GIGACHAT_API_KEY=${GIGACHAT_API_KEY}
+    env_file:
+      - .env
+    restart: unless-stopped 

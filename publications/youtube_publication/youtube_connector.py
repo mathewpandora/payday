@@ -6,7 +6,7 @@ from google.auth.transport.requests import Request
 
 
 class YouTubeConnector:
-    def __init__(self, client_secret_file='/Users/matvejtrofimov/Desktop/hayday/publications/youtube_publication/client_secret_439707286940-5qe8kh3tit3ia9rrg9nufjgndug21lkd.apps.googleusercontent.com.json', token_file='/Users/matvejtrofimov/Desktop/hayday/publications/youtube_publication/token.json'):
+    def __init__(self, client_secret_file='/app/publications/youtube_publication/client_secret_439707286940-5qe8kh3tit3ia9rrg9nufjgndug21lkd.apps.googleusercontent.com.json', token_file='/app/publications/youtube_publication/token.json'):
         self.client_secret_file = client_secret_file
         self.token_file = token_file
         self.scopes = ['https://www.googleapis.com/auth/youtube.upload']
