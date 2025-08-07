@@ -28,7 +28,6 @@ logs/
 
 # Media
 *.mp4
-*.mp3
 
 # Token/Secrets
 *.json

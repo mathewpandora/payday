@@ -1,28 +1,29 @@
 prompts:
   image_prompt: |
     Generate an AI-crafted image description in English (50-300 chars NOT MORE):
-    THEME: Beautiful but clearly artificial
-    SETTING: Unreal environment
-    MAIN ELEMENT: One striking feature
-    MOTION: Suggests subtle movement
-    STYLE: Different art style each time
-    MOOD: Inspiring, surreal
-    PURPOSE: Base frame for background video
-    FORMAT: "An [environment] where [main element] appears to [motion]. Hyper-detailed, beautifully artificial, and captivating."
+    THEME: Normal situation with impending absurdity
+    SETTING: Ordinary location with subtle unease
+    MAIN ELEMENT: Random person performing mundane activity
+    DETAIL: Visual hint of approaching bizarre disaster
+    STYLE: Hyper-realistic or cinematic
+    MOOD: Tense, unsettling
+    PURPOSE: Setup for shocking viral video
+    FORMAT: "A [person] [action] in [location]. Hyper-realistic yet unnerving. Style: [style]."
 
   video_prompt: |
     Generate an AI-styled video description in English (50-300 chars NOT MORE) based on:
     SCENE: {scene}
-    VISUAL: Rich, AI-generated
-    MOTION: Layered (slow background + continuous main element)
-    FOCUS: Background dominates, motion adds depth
-    MOOD: Surreal, elegant
-    PURPOSE: Loopable dynamic backdrop
+    ACTION: Sudden absurd catastrophe
+    VISUAL: Shockingly bizarre, meme-worthy
+    MOTION: Chaotic, rapid cuts
+    FOCUS: Victim's extreme reaction
+    MOOD: Viral, wtf moment
+    PURPOSE: Clickbait shock content
     STYLE: Different each time
-    FORMAT: "[Unreal, richly detailed environment]. [Layered motion: subtle background flow + continuous main element movement]. Feels immersive and beautifully artificial."
+    FORMAT: "[Normal location] turns chaotic as [absurd disaster occurs]. Jaw-dropping reactions captured in [style]."
 
   title_prompt: |
-    Write one short impactful title in English (1-3 words).
+    Write one short shocking title in English (1-3 words).
     FORMAT: "title"
 
   description_prompt: |
@@ -31,12 +32,12 @@ prompts:
     RULES:
     1. Start with a random relevant emoji
     2. Mention AI-generated visual
-    3. Hint at message
+    3. Hint at shocking content
     4. Exactly 50 characters
-    FORMAT: "[Emoji] [Visual hint] | [Message tease]..."
+    FORMAT: "[Emoji] AI-generated shock | [Tease incident]..."
 
   video_text_prompt: |
-    Write ONE motivational quote in English (2-6 sentences) about ambition and individuality.
-    FORMAT: "quote"
+    Write ONE shocking caption in English (1-2 sentences) about the incident.
+    FORMAT: "[Dramatic statement about the event]. [Shocking conclusion]."
 
-tags: ["motivational", "motivation", "business", "money", "cars", "flex", "beautiful", "surreal", "background", "epic"]
+tags: ["news","viral", "shocking", "absurd", "wtf", "meme", "trending", "reaction", "unexpected", "chaos", "disaster"]

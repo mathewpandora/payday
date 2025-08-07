@@ -15,7 +15,7 @@ def run_pipeline():
         url, raw_video_path = processor.create_video(
             content['img_prompt'],
             content['vid_prompt'],
-            duration=5
+            duration=10
         )
 
         final_video_path = processor.finalize_video(
