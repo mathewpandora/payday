@@ -54,7 +54,7 @@ class VideoProcessor:
 
             # 5. Генерация текста для наложения на видео
             video_text = self.giga.send_prompt(
-                self.prompts['prompts']['video_text_prompt'].format(title=title, description=description)
+                self.prompts['prompts']['video_text_prompt'].format(title=title, description=description, contex=context)
             )
             logger.info(f"Сгенерированный текст на видео: {video_text}")
 
