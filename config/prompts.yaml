@@ -1,11 +1,11 @@
 prompts:
   image_prompt: |
-    "Generate a realistic image of a person in a simple everyday situation. Focus on a single clear action, such as climbing stairs, swimming, reading a book, or carrying groceries. Avoid surreal, exaggerated, or overly stylized elements. The scene should be natural and relatable, with normal lighting and surroundings. Do not include the examples I mentioned—create a different common activity. Strictly describe only the action in English, nothing else."
+    Generate a realistic image of a person in a simple everyday situation. Focus on a single clear action, such as climbing stairs, swimming, reading a book, or carrying groceries. Avoid surreal, exaggerated, or overly stylized elements. The scene should be natural and relatable, with normal lighting and surroundings. Do not include the examples I mentioned—create a different common activity. Strictly describe only the action in English, nothing else.
     Example outputs (just descriptions, no extra text):
-    "A person is watering plants in a garden."
-    "A man is tying his shoelaces on a park bench."
-    "A woman is folding laundry in a bedroom."
-    "A child is drawing with crayons at a table."
+    A person is watering plants in a garden.
+    A man is tying his shoelaces on a park bench.
+    A woman is folding laundry in a bedroom.
+    A child is drawing with crayons at a table.
     Key rules for the model:
     
     Only output the action description (1 short sentence).
@@ -14,13 +14,12 @@ prompts:
     English only, no explanations.
 
   video_prompt: |
-    *"Take this image context: {scene} (a normal everyday scene). Generate a shocking/unexpected twist that could realistically happen next in a video—no fantasy/sci-fi (no UFOs, magic, etc.). The twist must be bizarre, surprising, but physically possible. Do not repeat my examples. Output only 1 concise English sentence describing the event, nothing else."*
-
+    Take this image context: {scene} (a normal everyday scene). Generate a shocking/unexpected twist that could realistically happen next in a video—no fantasy/sci-fi (no UFOs, magic, etc.). The twist must be bizarre, surprising, but physically possible. Do not repeat my examples. Output only 1 concise English sentence describing the event, nothing else.
     Example Twists (for inspiration only, do not reuse):
     
-    "Suddenly, a swarm of bees attacks the picnic, chasing everyone."
-    "A hidden sinkhole opens beneath the jogger, swallowing them instantly."
-    "The barista spills coffee, revealing a secret message in the stain."
+    Suddenly, a swarm of bees attacks the picnic, chasing everyone.
+    A hidden sinkhole opens beneath the jogger, swallowing them instantly.
+    The barista spills coffee, revealing a secret message in the stain.
     Rules:
     
     Use {context} (e.g., "A man fixes his car" → "The wrench slips, launching the engine into the air.").
@@ -42,17 +41,15 @@ prompts:
     FORMAT: "[Emoji] AI-generated shock | [Tease incident]..."
 
   video_text_prompt: |
+    Using this image context: {context}, generate a 1-3 sentence fake news-style caption for a video. The story must be shocking, dramatic, and unrealistic (but avoid fantasy/sci-fi). Example: Tragedy in Brazil! Fisherman swallowed whole by mutant catfish—locals demand action! Do NOT reuse examples. Output only the caption in English, nothing else.
+    Example Outputs:
     
-    *"Using this image context: {context}, generate a 1-3 sentence fake news-style caption for a video. The story must be shocking, dramatic, and unrealistic (but avoid fantasy/sci-fi). Example: 'Tragedy in Brazil! Fisherman swallowed whole by mutant catfish—locals demand action!' Do NOT reuse examples. Output only the caption in English, nothing else."*
-
-    Example Outputs (based on {context}):
-    
-    "Panic in Tokyo! Office worker attacked by rabid squirrels—authorities warn of 'rodent uprising.'"
-    "Breaking: Florida man wrestles alligator in supermarket—witnesses say 'it took 10 cops to stop him.'"
-    "Village in chaos! Farmer crushed by falling watermelon—experts blame 'explosive harvest season.'"
+    Panic in Tokyo! Office worker attacked by rabid squirrels—authorities warn of rodent uprising.
+    Breaking: Florida man wrestles alligator in supermarket—witnesses say it took 10 cops to stop him.
+    Village in chaos! Farmer crushed by falling watermelon—experts blame explosive harvest season.
     Rules:
     
-    Use {context} (e.g., "woman gardening" → *"Gardener discovers 50-pound carrot—scientists baffled by 'vegetable anomaly.'"*).
+    Use {context} (e.g., "woman gardening" → Gardener discovers 50-pound carrot—scientists baffled by vegetable anomaly).
     Over-the-top drama, but no magic/aliens.
     1-3 sentences max, news-style.
     No explanations, just the text.

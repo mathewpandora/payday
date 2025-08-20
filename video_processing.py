@@ -40,7 +40,7 @@ class VideoProcessor:
             logger.info(f"Сгенерированное видео: {vid_prompt}")
 
             # 3. Генерация заголовка
-            context = f"{img_prompt[:200]}... {vid_prompt[:200]}..."
+            context = f"{img_prompt[:300]}... {vid_prompt[:300]}..."
             title = self.giga.send_prompt(
                 self.prompts['prompts']['title_prompt'].format(context=context)
             )
@@ -54,7 +54,7 @@ class VideoProcessor:
 
             # 5. Генерация текста для наложения на видео
             video_text = self.giga.send_prompt(
-                self.prompts['prompts']['video_text_prompt'].format(title=title, description=description, context=context)
+                self.prompts['prompts']['video_text_prompt'].format(context=context)
             )
             logger.info(f"Сгенерированный текст на видео: {video_text}")
 
@@ -107,10 +107,11 @@ class VideoProcessor:
             raise
 
     def finalize_video(self, video_path: str, text: str,
-                       music_folder: str = "content_generation/video_handler/music",
-                       font_path: str = "content_generation/video_handler/fonts/arialmt.ttf",
-                       text_output: str = "generated_videos/video_with_text.mp4",
-                       final_output: str = "generated_videos/final_with_music_mem.mp4") -> str:
+                       music_folder: str = "/app/content_generation/video_handler/music",
+                       font_path: str = "/app/content_generation/video_handler/fonts/arialmt.ttf",
+                       text_output: str = "/app/generated_videos/video_with_text.mp4",
+                       final_output: str = "/app/generated_videos/final_with_music_mem.mp4") -> str:
+
         """
         Добавляет текст и случайную музыку из папки к видео, возвращает путь к финальному видео.
         """
