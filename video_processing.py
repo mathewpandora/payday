@@ -13,52 +13,86 @@ from config.logger_config import logger
 
 class VideoProcessor:
     def __init__(self):
-        self.giga = GigaChatClient()
-        self.generator = RunwayVideoGenerator()
-        self.youtube_connector = YouTubeConnector()
-        self.prompts = self._load_prompts()
+        logger.info("Initializing VideoProcessor...")
+        try:
+            self.giga = GigaChatClient()
+            logger.info("GigaChat client initialized successfully")
+        except Exception as e:
+            logger.error(f"Failed to initialize GigaChat client: {e}")
+            raise
+            
+        try:
+            self.generator = RunwayVideoGenerator()
+            logger.info("Runway video generator initialized successfully")
+        except Exception as e:
+            logger.error(f"Failed to initialize Runway video generator: {e}")
+            raise
+            
+        try:
+            self.youtube_connector = YouTubeConnector()
+            logger.info("YouTube connector initialized successfully")
+        except Exception as e:
+            logger.error(f"Failed to initialize YouTube connector: {e}")
+            raise
+            
+        try:
+            self.prompts = self._load_prompts()
+            logger.info("Prompts loaded successfully")
+        except Exception as e:
+            logger.error(f"Failed to load prompts: {e}")
+            raise
 
     def _load_prompts(self) -> Dict:
         config_path = Path(__file__).parent / "config" / "prompts.yaml"
         if not config_path.exists():
             raise FileNotFoundError(f"Config file not found at {config_path}")
         with open(config_path, 'r', encoding='utf-8') as f:
-            return yaml.safe_load(f)
+            prompts = yaml.safe_load(f)
+            logger.info(f"Loaded prompts: {list(prompts.keys())}")
+            logger.info(f"Available prompt types: {list(prompts['prompts'].keys())}")
+            return prompts
 
     def generate_content(self) -> dict:
         try:
             logger.info("Starting content generation")
+            logger.info(f"Available prompts: {list(self.prompts['prompts'].keys())}")
 
             # 1. Генерация изображения
+            logger.info("Generating image prompt...")
             img_prompt = self.giga.send_prompt(self.prompts['prompts']['image_prompt'])
             logger.info(f"Сгенерированное фото: {img_prompt}")
 
             # 2. Генерация видео
+            logger.info("Generating video prompt...")
             vid_prompt = self.giga.send_prompt(
                 self.prompts['prompts']['video_prompt'].format(scene=img_prompt)
             )
             logger.info(f"Сгенерированное видео: {vid_prompt}")
 
             # 3. Генерация заголовка
+            logger.info("Generating title...")
             context = f"{img_prompt[:300]}... {vid_prompt[:300]}..."
+            logger.info(f"Context created: {context[:100]}...")
             title = self.giga.send_prompt(
                 self.prompts['prompts']['title_prompt'].format(context=context)
             )
             logger.info(f"Сгенерированный заголовок: {title}")
 
             # 4. Генерация описания
+            logger.info("Generating description...")
             description = self.giga.send_prompt(
                 self.prompts['prompts']['description_prompt'].format(title=title)
             )
             logger.info(f"Сгенерированное описание: {description}")
 
             # 5. Генерация текста для наложения на видео
+            logger.info("Generating video text...")
             video_text = self.giga.send_prompt(
-                self.prompts['prompts']['video_text_prompt'].format(context=context)
+                self.prompts['prompts']['video_text_prompt'].format(scene=img_prompt)
             )
             logger.info(f"Сгенерированный текст на видео: {video_text}")
 
-            return {
+            result = {
                 'img_prompt': img_prompt,
                 'vid_prompt': vid_prompt,
                 'title': title,
@@ -66,9 +100,14 @@ class VideoProcessor:
                 'video_text': video_text,
                 'tags': self.prompts['tags']
             }
+            logger.info(f"Content generation completed successfully. Result keys: {list(result.keys())}")
+            return result
 
         except Exception as e:
             logger.error(f"Content generation failed: {str(e)}")
+            logger.error(f"Error type: {type(e).__name__}")
+            import traceback
+            logger.error(f"Traceback: {traceback.format_exc()}")
             raise
 
     def create_video(self, img_prompt: str, vid_prompt: str, duration: int = 5) -> tuple:

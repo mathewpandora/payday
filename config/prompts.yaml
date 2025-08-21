@@ -22,7 +22,7 @@ prompts:
     The barista spills coffee, revealing a secret message in the stain.
     Rules:
     
-    Use {context} (e.g., "A man fixes his car" → "The wrench slips, launching the engine into the air.").
+    Use {scene} (e.g., "A man fixes his car" → "The wrench slips, launching the engine into the air.").
     No fantasy/supernatural—keep it shockingly real.
     1 sentence only, no fluff.
 
@@ -41,7 +41,7 @@ prompts:
     FORMAT: "[Emoji] AI-generated shock | [Tease incident]..."
 
   video_text_prompt: |
-    Using this image context: {context}, generate a 1-3 sentence fake news-style caption for a video. The story must be shocking, dramatic, and unrealistic (but avoid fantasy/sci-fi). Example: Tragedy in Brazil! Fisherman swallowed whole by mutant catfish—locals demand action! Do NOT reuse examples. Output only the caption in English, nothing else.
+    Using this image context: {scene}, generate a 1-3 sentence fake news-style caption for a video. The story must be shocking, dramatic, and unrealistic (but avoid fantasy/sci-fi). Example: Tragedy in Brazil! Fisherman swallowed whole by mutant catfish—locals demand action! Do NOT reuse examples. Output only the caption in English, nothing else.
     Example Outputs:
     
     Panic in Tokyo! Office worker attacked by rabid squirrels—authorities warn of rodent uprising.
@@ -49,7 +49,7 @@ prompts:
     Village in chaos! Farmer crushed by falling watermelon—experts blame explosive harvest season.
     Rules:
     
-    Use {context} (e.g., "woman gardening" → Gardener discovers 50-pound carrot—scientists baffled by vegetable anomaly).
+    Use {scene} (e.g., "woman gardening" → Gardener discovers 50-pound carrot—scientists baffled by vegetable anomaly).
     Over-the-top drama, but no magic/aliens.
     1-3 sentences max, news-style.
     No explanations, just the text.
