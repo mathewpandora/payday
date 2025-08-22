@@ -37,7 +37,7 @@ def run_pipeline():
         logger.info("Ждём следующей попытки запуска завтра.")
 
 def main():
-    start_time = "5:30"
+    start_time = "11:00"
     load_dotenv()
     schedule.every().day.at(start_time).do(run_pipeline)
 
